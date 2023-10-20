@@ -4,7 +4,7 @@ const bodyParser = require("body-parser")
 const cors = require("cors")
 const connectDB = require("./config/db")
 const app = express()
-const port = 3000
+const port = 3000 || process.env.PORT
 
 connectDB()
 
@@ -27,6 +27,7 @@ app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({
     extended: true
 }))
+
 
 app.use("/fiche", cors(), require('./routes/fiche.routes.js'))
 
