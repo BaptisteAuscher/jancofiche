@@ -1,0 +1,40 @@
+.fiche {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+    padding: 30px;
+    box-shadow: 2px 1px 10px rgba(129, 129, 129, 0.203);
+
+    text-align: left;
+    cursor: pointer;
+
+}
+
+.fiche button:hover {
+    background: rgb(217, 84, 84);
+}
+
+.fiche:hover {
+    transform: scale(1.02);
+    transition: ease-in;
+}
+
+.fiche h2 {
+    padding: 0;
+    margin: 0;
+    font-size: 1.1em;
+}
+
+.fiche p {
+    font-size: .8em;
+    font-weight: lighter;
+    font-style: italic;
+}
+
+.fiche-nom {
+    margin-left: 20px;
+    font-weight: lighter;
+    opacity: .7;
+}

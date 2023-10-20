@@ -1,0 +1,19 @@
+header {
+    width : calc(100vw - 20px);
+    position: fixed;
+    top: 0;
+    margin: none;
+    padding: 10px;
+    right: 0;
+    display: flex;
+    justify-content: flex-start;
+}
+
+header button{
+    margin-right: 10px;
+}
+
+.active button {
+    background: #2fb7ff;
+    color: white;
+}

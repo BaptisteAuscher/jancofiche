@@ -1,0 +1,20 @@
+.fiche-page {
+    display: flex;
+    flex-direction: column;
+    width: calc(100vw - 30px);
+    font-weight: bold;
+    max-width: 800px;
+    margin-top: 50px;
+}
+
+.fiche-page h1{
+    text-align: left;
+}
+
+.fiche-page ul {
+    display: flex;
+    flex-direction: column;
+    list-style-type: none;
+    width: 100%;
+    padding: 0;
+}
