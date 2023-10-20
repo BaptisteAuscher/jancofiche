@@ -17,7 +17,7 @@ function CreerFiche () {
             answer: data.answer,
             type: data.type
         }
-        axios.post('http://localhost:3000/fiche', {fiche} )
+        axios.post('https://janco-fiche-server.onrender.com/fiche', {fiche} )
           .then(function (response) {
             setErrorMessage("");
           })

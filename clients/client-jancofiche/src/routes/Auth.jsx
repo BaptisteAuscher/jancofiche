@@ -21,7 +21,7 @@ export default function Config () {
             username: data.admin,
             password: data.password
         }
-        axios.post('http://localhost:3000/auth/login', user )
+        axios.post('https://janco-fiche-server.onrender.com/auth/login', user )
           .then(function (response) {
             console.log(response)
             cookies.set("TOKEN", response.data.token, {

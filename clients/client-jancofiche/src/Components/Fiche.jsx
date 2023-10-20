@@ -13,7 +13,7 @@ export function Fiche (props) {
         const token = cookies.get("TOKEN")
         const configuration = {
             method: "delete",
-            url: `http://localhost:3000/fiche/${props.fiche._id}`,
+            url: `https://janco-fiche-server.onrender.com/fiche/${props.fiche._id}`,
             headers: {
               Authorization: `Bearer ${token}`,
             },

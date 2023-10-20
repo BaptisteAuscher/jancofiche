@@ -13,7 +13,7 @@ function Liste () {
     const [fiches, setFiches] = useState([])
     const [isLoading, setLoading] = useState(true)
     useEffect(() => {
-        axios.get("http://localhost:3000/fiche").then((res) => {
+        axios.get("https://janco-fiche-server.onrender.com/fiche").then((res) => {
             setFiches(res.data.reverse())
             setLoading(false)
         })
@@ -21,7 +21,7 @@ function Liste () {
 
     const handleDelete = (e) => {
         setLoading(true)
-        axios.get("http://localhost:3000/fiche").then((res) => {
+        axios.get("https://janco-fiche-server.onrender.com/fiche").then((res) => {
             setFiches(res.data.reverse())
             setLoading(false)
         })
