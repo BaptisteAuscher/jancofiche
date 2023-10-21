@@ -6,6 +6,7 @@ import axios from 'axios'
 
 function CreerFiche () {
     const [errorMessage, setErrorMessage] = useState("")
+    const [succes, setSucces] = useState("")
     const {register, handleSubmit, reset, formState, formState : {isSubmitSuccessful}} = useForm()
     const onSubmit = (data) => {
         localStorage.setItem("name", data.name)
@@ -20,10 +21,11 @@ function CreerFiche () {
         axios.post('https://janco-fiche-server.onrender.com/fiche', {fiche} )
           .then(function (response) {
             setErrorMessage("");
+            setSucces("Fiche crée avec succès !")
           })
           .catch(function (error) {
             setErrorMessage(error.response.data.error);
-            
+            setSucces("")
           });
     }
     console.log(formState.isSubmitSuccessful)
@@ -40,6 +42,7 @@ function CreerFiche () {
             <form method="post" onSubmit={handleSubmit(onSubmit)} className="form-creer">
                 <h1>Ajoute une fiche</h1>
                 { errorMessage != "" && <span className="error-log">{errorMessage}</span>}
+                { succes != "" && <span className="succes-log">{succes}</span>}
                 <label htmlFor="mail">Adresse mail des mines</label>
                 <input type="email" defaultValue={mail} { ...register("mail", {pattern: /\w+[.]\w+(@etu.minesparis.psl.eu)/g})} name="mail" id="mail" placeholder="jean.mineur@etu.minesparis.psl.eu"/>
                 <label htmlFor="name">Nom</label>
