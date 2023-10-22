@@ -23,7 +23,6 @@ export default function Config () {
         }
         axios.post('https://janco-fiche-server.onrender.com/auth/login', user )
           .then(function (response) {
-            console.log(response)
             cookies.set("TOKEN", response.data.token, {
               path: "/",
             });
@@ -32,7 +31,6 @@ export default function Config () {
             window.location.href = "/config";
           })
           .catch(function (error) {
-            console.log(error.response)
             setErrorMessage(error.response.data.error);
             
           });

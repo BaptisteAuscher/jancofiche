@@ -3,6 +3,7 @@ import { Form } from "react-router-dom";
 import './creer-fiche.css'
 import { useForm } from 'react-hook-form'
 import axios from 'axios'
+import { Notification } from "../Components/Notification";
 
 function CreerFiche () {
     const [errorMessage, setErrorMessage] = useState("")
@@ -35,14 +36,23 @@ function CreerFiche () {
         }
       }, [formState, reset]);
     
+    useEffect(() => {
+      if (errorMessage != "" || succes != "") {
+        setTimeout(() => {
+          setErrorMessage("")
+          setSucces("")
+        }, 3000)
+      }
+    }, [errorMessage, succes])
+    
     const mail = localStorage.getItem("mail")
     const name = localStorage.getItem("name")
     return (
         <>  
             <form method="post" onSubmit={handleSubmit(onSubmit)} className="form-creer">
                 <h1>Ajoute une fiche</h1>
-                { errorMessage != "" && <span className="error-log">{errorMessage}</span>}
-                { succes != "" && <span className="succes-log">{succes}</span>}
+                { errorMessage != "" && <Notification type="error" message={errorMessage} />}
+                { succes != "" && <Notification type="succes" message={succes} />}
                 <label htmlFor="mail">Adresse mail des mines</label>
                 <input type="email" defaultValue={mail} { ...register("mail", {pattern: /\w+[.]\w+(@etu.minesparis.psl.eu)/g})} name="mail" id="mail" placeholder="jean.mineur@etu.minesparis.psl.eu"/>
                 <label htmlFor="name">Nom</label>

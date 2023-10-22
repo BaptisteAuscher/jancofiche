@@ -18,14 +18,12 @@ export function Fiche (props) {
               Authorization: `Bearer ${token}`,
             },
         }
-        console.log(props.fiche._id)
 
         axios(configuration).then((res) => {
             props.onDelete()
         })
         .catch((err) => {
             console.log("erreur")
-            console.log(err)
         })
     }
     return (

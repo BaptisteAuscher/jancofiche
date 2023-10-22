@@ -10,9 +10,7 @@ function Entrainement () {
             return -1
         }
         let i = Math.floor(Math.random() * max)
-        console.log("valeur test",i)
         if (!(used.includes(i))) {
-            console.log("valeur retournée", i)
             return i
         } else {
             getRandomIndex(used, max)
@@ -35,9 +33,7 @@ function Entrainement () {
             return
         }
         let i = getRandomIndex(usedIndex, fiches.length)
-        console.log("valeur recue", i)
         if (i == -1) {
-            console.log("Fin du jeu")
             return
         }
         if (i == undefined) {
@@ -48,9 +44,6 @@ function Entrainement () {
         await setIndex(i)
         await setType("question")
     }
-    useEffect(() => {
-        console.log(index, usedIndex)
-    }, [index, usedIndex])
     useEffect(() => {
         const callAPI = async (url) => {
             await axios.get(url)
