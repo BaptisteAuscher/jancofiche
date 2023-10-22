@@ -54,7 +54,7 @@ function CreerFiche () {
                 { errorMessage != "" && <Notification type="error" message={errorMessage} />}
                 { succes != "" && <Notification type="succes" message={succes} />}
                 <label htmlFor="mail">Adresse mail des mines</label>
-                <input type="email" defaultValue={mail} { ...register("mail", {pattern: /\w+[.]\w+(@etu.minesparis.psl.eu)/g})} name="mail" id="mail" placeholder="jean.mineur@etu.minesparis.psl.eu"/>
+                <input type="email" defaultValue={mail} { ...register("mail", {pattern: /(\w|-)+[.](\w|-)+(@etu.minesparis.psl.eu)/g})} name="mail" id="mail" placeholder="jean.mineur@etu.minesparis.psl.eu"/>
                 <label htmlFor="name">Nom</label>
                 <input type="text" defaultValue={name} {...register("name")} name="name" id="name" placeholder="Jean Mineur"/>
                 <label htmlFor="question">Pose une question</label>
