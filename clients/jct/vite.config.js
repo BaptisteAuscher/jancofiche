@@ -6,46 +6,34 @@ import { VitePWA } from 'vite-plugin-pwa'
 export default defineConfig({
   plugins: [
     react(),
-    VitePWA({ 
-      registerType: 'autoUpdate',
-      devOptions: {
-        enabled: true
-      },
+    VitePWA({
       manifest: {
-        name: 'Jancochtouille',
-        short_name: 'JCT',
-        description: 'Application superbe',
-        theme_color: '#1E1E1E',
         icons: [
           {
-            src: 'logo-192.png',
-            sizes: '192x192',
-            type: 'image/png'
+            src : "logo-512.png",
+            sizes : "512x512",
+            type: "image/png",
+            purpose: "any maskable"
           },
           {
-            src: 'logo-512.png',
-            sizes: '512x512',
-            type: 'image/png'
+            src : "logo-192.png",
+            sizes : "192x192",
+            type: "image/png",
+            purpose: "any maskable"
           }
         ]
       },
-      workbox : {
-        runtimeCaching: [
-          {
-            urlPattern: /^https:\/\/janco-fiche-server\.onrender\.com\/.*/i,
-            handler: 'CacheFirst',
-            options: {
-              cacheName: 'data',
-              expiration: {
-                maxEntries: 10,
-                maxAgeSeconds: 60 * 60 * 24 * 365 // <== 365 days
-              },
-              cacheableResponse: {
-                statuses: [0, 200]
-              }
+      workbox: {
+        runtimeCaching: [{
+          urlPattern: "https://janco-fiche-server.onrender.com/fiche",
+          handler: "CacheFirst",
+          options: {
+            cacheName: "fiche",
+            cacheableResponse: {
+              statuses: [0,200]
             }
           }
-        ]
+        }]
       }
     })
   ],
