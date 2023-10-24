@@ -28,6 +28,24 @@ export default defineConfig({
             type: 'image/png'
           }
         ]
+      },
+      workbox : {
+        runtimeCaching: [
+          {
+            urlPattern: /^https:\/\/janco-fiche-server\.onrender\.com\/.*/i,
+            handler: 'CacheFirst',
+            options: {
+              cacheName: 'data',
+              expiration: {
+                maxEntries: 10,
+                maxAgeSeconds: 60 * 60 * 24 * 365 // <== 365 days
+              },
+              cacheableResponse: {
+                statuses: [0, 200]
+              }
+            }
+          }
+        ]
       }
     })
   ],
