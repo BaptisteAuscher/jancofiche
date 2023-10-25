@@ -7,6 +7,7 @@ export default defineConfig({
   plugins: [
     react(),
     VitePWA({
+      registerType: "autoUpdate",
       manifest: {
         icons: [
           {
@@ -26,7 +27,7 @@ export default defineConfig({
       workbox: {
         runtimeCaching: [{
           urlPattern: "https://janco-fiche-server.onrender.com/fiche",
-          handler: "CacheFirst",
+          handler: "NetworkFirst",
           options: {
             cacheName: "fiche",
             cacheableResponse: {
